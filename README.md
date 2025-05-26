@@ -1,6 +1,8 @@
 # YaleNeuroConnect_ProcessingPipeline
 
-This repository contains the fMRI data processing pipeline utilized by the YaleNeuroConnect study. The shell scripts provided will only function properly if you have installed FSL, BioImage Suite, and SPM12, and have each of those softwares added to your path. These scripts are located in the '/sample/scripts/' folder provided in this repository. Additionally, we have provided one subjects' data from each step in the preprocessing pipeline that can be used as a reference/example. The folder/file structure that you use should mirror this example subjects' for the pipeline to work properly.  
+This repository contains the fMRI data processing pipeline utilized by the YaleNeuroConnect study. The shell scripts provided will only function properly if you have installed FSL, BioImage Suite, and SPM12, and have each of those softwares added to your path. These scripts are located in the '/sample/scripts/' folder provided in this repository. Additionally, we have provided one subjects' data from each step in the preprocessing pipeline that can be used as a reference/example. This data can be downloaded here: https://yaleedu-my.sharepoint.com/:f:/r/personal/anja_samardzija_yale_edu/Documents/YaleNeuroConnect/SampleData?csf=1&web=1&e=ia26fJ  
+
+The raw dicoms were uploaded as .tgz files to save storage space. This is normally accomplished in step 2 of the pipeline. Once downloaded, you should move the sample raw dicom.tgz to the /sample/rawdicoms/ folder, and move the folder '/sub-pa5347/' to '/sample/sourcedata/'. To ensure that the pipeline functions smoothly, the folder/file structure that you use should mirror this example subjects'.  
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -10,7 +12,8 @@ Below is the order in which you should run the scripts, a description of which p
    Steps:  
        a. Edit the script by typing "gedit convert_dicom_to_bids.csh" in your terminal  
        b. Edit the dicom names of subjects you want to preprocess. Be sure that your input/output directories are correct!  
-       c. Run it by typing "tcsh -c ./convert_dicom_to_bids.csh" in your terminal.  
+       c. Run it by typing "tcsh -c ./convert_dicom_to_bids.csh" in your terminal.
+  
 
 2. tar_zip.csh -- zips your original DICOM files to save space
   
