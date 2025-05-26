@@ -1,0 +1,1 @@
+This folder is intentionally left empty (the software packages are too big to put onto GitHub). You should either populate it with the dependent softwares that this pipeline utilizes (SPM12, bioimage suite, and FSL), or change the filepaths pointing to these softwares in the scripts provided in this repository.
