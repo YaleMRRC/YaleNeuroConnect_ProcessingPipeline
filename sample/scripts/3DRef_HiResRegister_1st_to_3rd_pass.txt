@@ -1,0 +1,37 @@
+# Example Batch File
+# The following variables can be defined
+# inputlist(1) .. inputlist(9) :  lists of inputs
+# outputsuffix : list of outputsuffices
+# cmdline : the command line beginning with the algorithm
+# logsuffix : the suffix of the log file for each command
+
+# Modify this path according to where your bioimage suit is located
+set inputlist(1) {
+/software/bioimagesuite35/images/MNI_T1_1mm_stripped.nii.gz
+}
+
+# modify subject ID accordingly
+set inputlist(2) {
+../sourcedata/sub-XXXX/anat/sub-XXXX_run-03_T1w_optiBET_brain.nii.gz
+}
+
+#Use the *ignore* flag to skip an optional input, i.e. in this case -inp3 will not be used
+set inputlist(3) {
+*ignore*
+}
+
+set inputlist(4) {
+*ignore*
+}
+
+set inputlist(5) {
+*ignore*
+}
+
+set outputsuffix {
+HiResReg.grd
+}
+
+set logsuffix "results"
+
+set cmdline "bis_nonlinearbrainregister.tcl"
