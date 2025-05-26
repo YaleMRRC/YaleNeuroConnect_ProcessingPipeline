@@ -1,6 +1,6 @@
 # YaleNeuroConnect_ProcessingPipeline
 
-This repository contains the fMRI data processing pipeline utilized by the YaleNeuroConnect study. The shell scripts provided will only function properly if you have installed FSL, BioImage Suite, and SPM12, and added each of those softwares to your path. These scripts are located in the '/sample/scripts/' folder provided in this repository. Additionally, we have provided one subjects' data from each step in the preprocessing pipeline that can be used as a reference/example. The folder/file structure that you use should mirror this example subjects' for the pipeline to work properly.  
+This repository contains the fMRI data processing pipeline utilized by the YaleNeuroConnect study. The shell scripts provided will only function properly if you have installed FSL, BioImage Suite, and SPM12, and have each of those softwares added to your path. These scripts are located in the '/sample/scripts/' folder provided in this repository. Additionally, we have provided one subjects' data from each step in the preprocessing pipeline that can be used as a reference/example. The folder/file structure that you use should mirror this example subjects' for the pipeline to work properly.  
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
