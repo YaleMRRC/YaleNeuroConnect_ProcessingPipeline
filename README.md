@@ -18,6 +18,7 @@ Below is the order in which you should run the scripts, a description of which p
   
    Steps:  
        a. Edit the script by typing "gedit tar_zip.csh" in your terminal.
+   
        b. Edit the file names of subjects you want to preprocess. Be sure that your input/output directories are correct. 
        c. Run it by typing "tcsh -c ./tar_zip.csh" in your terminal.  
        d. After it has completed, you can rm -rf the original dicom file (but keep the tgz file!) from the input directory to save disk space (make sure this is done only after the file is completely tar zipped).  
