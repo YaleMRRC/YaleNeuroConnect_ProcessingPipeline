@@ -4,6 +4,7 @@ This repository contains the fMRI data processing pipeline utilized by the YaleN
 The raw dicoms were uploaded as .tgz files to save storage space. This is normally accomplished in step 2 of the pipeline. Once downloaded, you should move the sample raw dicom.tgz to the /sample/rawdicoms/ folder, and move the folder '/sub-pa5347/' to '/sample/sourcedata/'. To ensure that the pipeline functions smoothly, the folder/file structure that you use should mirror this example subjects'.  
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Written by Alexander J. Simon (aj.simon@yale.edu).
 
 Below is the order in which you should run the scripts, a description of which preprocessing steps they accomplish, and a step-by-step guide on how to set them up and run them. 
 1. convert_dicom_to_bids.csh -- converts your DICOM files to BIDS.  
