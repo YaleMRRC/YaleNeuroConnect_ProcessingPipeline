@@ -18,7 +18,6 @@ Below is the order in which you should run the scripts, a description of which p
   
    Steps:  
        a. Edit the script by typing "gedit tar_zip.csh" in your terminal.
-   
        b. Edit the file names of subjects you want to preprocess. Be sure that your input/output directories are correct. 
        c. Run it by typing "tcsh -c ./tar_zip.csh" in your terminal.  
        d. After it has completed, you can rm -rf the original dicom file (but keep the tgz file!) from the input directory to save disk space (make sure this is done only after the file is completely tar zipped).  
@@ -63,8 +62,8 @@ Below is the order in which you should run the scripts, a description of which p
   
    Steps:  
         a. Navigate to /sample/Matrix_Connectivity/indiv_setups/ in your terminal.  
-        a. Make sure there is a .txt file in /sample/Matrix_Connectivity/indiv_setups/text_files/ called 'SubjList.txt' in that contains a list of the subject IDs that you want to make matrices for.  
-        b. Run it by typing "tcsh -c ./create_xmlgfiles_matrix_byrun.csh" in your terminal.  
+        b. Make sure there is a .txt file in /sample/Matrix_Connectivity/indiv_setups/text_files/ called 'SubjList.txt' in that contains a list of the subject IDs that you want to make matrices for.  
+        c. Run it by typing "tcsh -c ./create_xmlgfiles_matrix_byrun.csh" in your terminal.  
         ** This will function best if these are stored (along with this script) in a separate folder from the rest of the files.  
   
 9. Create the functional connectivity matrices. This will compute a 268x268 functional connectivity matrix from your voxel level time series data using the Shen268 node atlas. It will also regress mean time courses in white matter, cerebrospinal fluid, and grey matter; high-pass filter to correct linear, quadratic, and cubic drift; regression of 24 motion parameters; and low-pass filter (Gaussian filter, σ = 1.55) the data.  
