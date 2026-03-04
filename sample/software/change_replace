@@ -1,0 +1,30 @@
+#!/bin/tcsh -f
+
+onintr quit
+
+if ($#argv < 3) then
+	echo "Sorry, not enough parameters"
+	echo "correct usage is: change_replace oldstring newstring list_of_files"
+	goto quit
+endif
+
+@ numfiles = $#argv 
+
+set counter = 3
+
+
+# cheesey fix.....
+set sededit = s^$argv[1]^$argv[2]^g
+
+while ($counter <= $numfiles )
+	if ( `grep $argv[1] $argv[$counter] |wc -l` != 0 ) then
+		sed -e $sededit $argv[$counter] > temp673956
+		echo "changing $argv[$counter]"
+		/bin/mv  $argv[$counter] $argv[$counter]%
+		/bin/mv temp673956 $argv[$counter]
+	endif
+	@ counter++
+end
+
+quit:
+unset oldstring newstring counter sededit
