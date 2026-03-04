@@ -8,23 +8,22 @@ cd /sample/sourcedata
 
 # Edit subject IDs
 foreach subj (sub-XXXX)
+	foreach ses (`ls -d ${subj}/ses-*`)
 
-	cd ${subj}/func
+		cd ${ses}/func
+	    set epiimage = `ls mean*bold.nii.gz`
+	    set t1image  = `ls ../anat/*optiBET_brain.nii.gz`
+
+		echo "epi_reg --epi=$epiimage --t1=$t1image --t1brain=$t1image --out=${subj}_FCTto3Depireg.nii.gz"
+	    epi_reg --epi=$epiimage --t1=$t1image --t1brain=$t1image --out=${subj}_FCTto3Depireg.nii.gz
 	
-	set epiimage = `ls mean*bold.nii.gz`
-	set t1image = `ls ../anat/*optiBET_brain.nii.gz`
-
-echo "epi_reg --epi=$epiimage --t1=$t1image --t1brain=$t1image --out=${subj}_FCTto3Depireg.nii.gz"
-
-	epi_reg --epi=$epiimage --t1=$t1image --t1brain=$t1image --out=${subj}_FCTto3Depireg.nii.gz
-
-echo ${subj}_FCTto3Depireg.nii.gz
-echo $epiimage
-echo ${subj}_FCTto3Depireg_converted.matr
-
-echo	"bis_linearintensityregister.tcl -inp ${subj}_FCTto3Depireg.nii.gz -inp2 $epiimage -out ${subj}_FCTto3Depireg_converted.matr"
-
-	bis_linearintensityregister.tcl -inp ${subj}_FCTto3Depireg.nii.gz -inp2 $epiimage -out ${subj}_FCTto3Depireg_converted.matr
-
-	cd ../..
+	    echo ${subj}_FCTto3Depireg.nii.gz
+	    echo $epiimage
+	    echo ${subj}_FCTto3Depireg_converted.matr
+	
+	    echo "bis_linearintensityregister.tcl -inp ${subj}_FCTto3Depireg.nii.gz -inp2 $epiimage -out ${subj}_FCTto3Depireg_converted.matr"
+	    bis_linearintensityregister.tcl -inp ${subj}_FCTto3Depireg.nii.gz -inp2 $epiimage -out ${subj}_FCTto3Depireg_converted.matr
+	
+	    cd ../../..
+	end
 end
