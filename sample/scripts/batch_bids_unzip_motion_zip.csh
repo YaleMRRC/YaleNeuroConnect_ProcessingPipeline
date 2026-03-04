@@ -13,7 +13,7 @@ cd $subj/func
 cp /source/scripts/batch_bids_motionSPM12_XXXX.csh .
 
 echo unzipping $subj
-gunzip *task-1trmb5ipat2*bold.nii.gz
+gunzip *task*bold.nii.gz
 
 echo running motion correction $subj
 
