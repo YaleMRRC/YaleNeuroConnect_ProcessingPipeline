@@ -5,28 +5,36 @@ set subjlist = ( `awk '{print $1}' "$subfile"` )
 
 foreach sub_nr ( `seq 1 1 $#subjlist`)
 
-	set sub = ($subjlist[$sub_nr])
-	cp text_files/template_matrix_8runs.xmlg {$sub}_matrix_shen268.xmlg
-	set restserlist=`ls /sample/sourcedata/{$sub}/func/R*`
-	set restmotionlist=`ls /sample/sourcedata/{$sub}/func/*realign/*hiorder.mat`
+    set sub = ($subjlist[$sub_nr])
+    cp text_files/template_matrix_8runs.xmlg ${sub}_matrix_shen268.xmlg
 
-	foreach sernr ( `seq 1 1 $#restserlist` )
-		set restrun=($restserlist[$sernr])
-		set restmotion=($restmotionlist[$sernr])
-		/home/cheryl/change_replace RESTIMAGE${sernr} $restrun {$sub}_matrix_shen268.xmlg
-		/home/cheryl/change_replace RESTMOTION${sernr} $restmotion {$sub}_matrix_shen268.xmlg
-	end
+    # Sort to keep pairing stable with motion files
+    set restserlist = ( `ls -1 /sample/sourcedata/${sub}/ses-*/func/R* | sort` )
 
-	set mprage = `ls /sample/sourcedata/{$sub}/anat/*optiBET_brain.nii.gz | tail -1`
-	set refreg = `ls /sample/sourcedata/{$sub}/anat/MNI*{$sub}*3rdpass.grd | tail -1`
-	set fctreg = `ls /sample/sourcedata/{$sub}/func/*converted.matr`
+    # Motion mats live in func/*realign/ and have similar naming; sort for stable pairing
+    set restmotionlist = ( `ls -1 /sample/sourcedata/${sub}/ses-01/func/*realign/*hiorder.mat | sort` )
 
-	set invname=`ls /sample/sourcedata/{$sub}/anat/MNI*{$sub}*3rdpass.grd | tail -1 | cut -f9 -d/`
-	set invrefreg=/sample/sourcedata/{$sub}/anat/Inverse_{$invname}
+    foreach sernr ( `seq 1 1 $#restserlist` )
+        set restrun    = ($restserlist[$sernr])
+        set restmotion = ($restmotionlist[$sernr])
+        /home/cheryl/change_replace RESTIMAGE${sernr}  $restrun    ${sub}_matrix_shen268.xmlg
+        /home/cheryl/change_replace RESTMOTION${sernr} $restmotion ${sub}_matrix_shen268.xmlg
+    end
 
-	/home/cheryl/change_replace MPRAGEIMAGE $mprage {$sub}_*.xmlg
-	/home/cheryl/change_replace INVREFREGISTRATION $invrefreg  {$sub}_*.xmlg
-	/home/cheryl/change_replace REFREGISTRATION $refreg  {$sub}_*.xmlg
-	/home/cheryl/change_replace FCTREGISTRATION $fctreg  {$sub}_*.xmlg
-	/home/cheryl/change_replace SUBNUMBER $sub {$sub}_*.xmlg
+    # Anat + registrations now under ses-01/anat
+    set mprage = `ls /sample/sourcedata/${sub}/ses-*/anat/*optiBET_brain.nii.gz | tail -1`
+    set refreg = `ls /sample/sourcedata/${sub}/ses-*/anat/MNI*${sub}*3rdpass.grd | tail -1`
+
+    # func registrations now under ses-01/func
+    set fctreg = `ls /sample/sourcedata/${sub}/ses-*/func/*converted.matr`
+
+    # Robust basename instead of cut -f9 -d/
+    set invname = `basename "$refreg"`
+    set invrefreg = /sample/sourcedata/${sub}/ses-*/anat/Inverse_${invname}
+
+    /home/cheryl/change_replace MPRAGEIMAGE        $mprage    ${sub}_*.xmlg
+    /home/cheryl/change_replace INVREFREGISTRATION $invrefreg ${sub}_*.xmlg
+    /home/cheryl/change_replace REFREGISTRATION    $refreg    ${sub}_*.xmlg
+    /home/cheryl/change_replace FCTREGISTRATION    $fctreg    ${sub}_*.xmlg
+    /home/cheryl/change_replace SUBNUMBER          $sub       ${sub}_*.xmlg
 end
