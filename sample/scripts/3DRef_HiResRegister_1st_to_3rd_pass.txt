@@ -12,7 +12,7 @@ set inputlist(1) {
 
 # modify subject ID accordingly
 set inputlist(2) {
-../sourcedata/sub-XXXX/anat/sub-XXXX_run-03_T1w_optiBET_brain.nii.gz
+../sourcedata/sub-XXXX/ses-01/anat/sub-XXXX_ses-01_T1w_optiBET_brain.nii.gz
 }
 
 #Use the *ignore* flag to skip an optional input, i.e. in this case -inp3 will not be used
