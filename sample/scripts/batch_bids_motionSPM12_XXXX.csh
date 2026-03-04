@@ -26,24 +26,23 @@ basedir = ['/sample/sourcedata'];
 
 
     %may need to change the next two lines depending on your needs
-    dir=sprintf(['%s/%s/func'],deblank(basedir),deblank(study_list));
-    filter_expression=sprintf(['^%s_task-1trmb5ipat2_run-[0-9][0-9]_bold.nii'],deblank(study_list));
+	dir = sprintf('%s/%s/func', deblank(basedir), deblank(study_list));
+    filter_expression = sprintf('^%s_ses-[0-9][0-9]_task-[A-Za-z0-9]+(_run-[0-9][0-9])?_bold\\.nii(\\.gz)?$', deblank(study_list));
 
-    parameter_dir=sprintf('%s/realign/',dir);
+    parameter_dir = sprintf('%s/realign/', dir);
 
-    f=spm_select('FPList',deblank(dir),filter_expression);
+    f = spm_select('FPList', deblank(dir), filter_expression);
 
-    if(use_middle_run)
-	mid=ceil(size(f,1)/2);
-	f=[ f(mid,:) ; f(1:(mid-1),:) ; f((mid+1):end,:) ]
-    end
+    if (use_middle_run)
+    	mid = ceil(size(f,1)/2);
+    	f = [ f(mid,:) ; f(1:(mid-1),:) ; f((mid+1):end,:) ];
+	end
 
 disp(f);
 
     if ~isempty(f)
-        mrrc_motioncorrection_wrapper(f,use_old_flags,parameter_dir);
-    end
-
+    	mrrc_motioncorrection_wrapper(f, use_old_flags, parameter_dir);
+	end
 
 
 quit
