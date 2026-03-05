@@ -1,3 +1,0 @@
-[ Gray/White Segm ]
-1:  Gray Matter
-2:  White Matter
