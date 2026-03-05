@@ -1,0 +1,23 @@
+<HTML><HEAD><TITLE>BioImage Suite - bis_visualizetransformation </TITLE></HEAD><BODY>
+<H2><CENTER><a href="index.html">BioImage Suite Command Line Tools</a></CENTER></H2>
+<font size="2" >
+<br> <br><H3>NAME</H3>
+bis_visualizetransformation.tcl --Creates a grid visualization of a transformation
+<br> <br><H3>SYNOPSIS</H3>
+</font>
+<font size="3" >
+<PRE><B>bis_visualizetransformation.tcl</B>[--inp ] [--inp2 ] [--inp3 ] [--out ] <br>	[--sp ] [--zsp ] [--opa ] [--int ] [--dogui ] <br>	[--pset ] [--slicermode ] [--loni ] [--ctest ] [--ctestline ] <br>	[--ctestsave ] [--ctesttmpdir ] [--ctestexact ] [--ctestthr ] [--ctestdebug ] <br>	[--ctestcreategold ] [--ctestgui ] </PRE>
+</font>
+<font size="2" >
+<br> <br><H3>DESCRIPTION</H3>
+bis_visualizetransformation.tcl Creates a grid visualization of a transformation a useful check of the quality of the transformations 
+ <BR> <BR><B><span style="color: red;">[Inputs]</span></B><br> <b>input_image</b> (command line option --inp) : Input Image <br> <b>second_image</b> (command line option --inp2) : Overlay Image <br> <b>transformation</b> (command line option --inp3) : Transformation  <BR> <BR><B><span style="color: red;">[Outputs]</span></B> <br> <b>output_image</b> (command line option --out) : Output Image  <BR> <BR><B><span style="color: red;">[Options]</span></B> <br> <b>sp</b>  : Spacing (in voxels) for lines. Default value is "8". Allowed range is from 4 to 32  <br> <b>zsp</b>  : Spacing (in voxels) for lines in z direction. Default value is "8". Allowed range is from 4 to 32  <br> <b>opa</b>  : Grid Opacity. Default value is "0.5". Allowed range is from 0.0 to 1.0  <br> <b>int</b>  : Grid Intensity. Default value is "0.9". Allowed range is from 0.0 to 5.0  <BR> <BR><B><span style="color: red;">[Common Options]</span></B> <br> <b>dogui</b>  : Enable the creation of a graphical user interface. Default value is "0". Allowed values are either 0 (Off) or 1 (On) <br> <b>pset</b>  : Use Parameter set to set parameters. Default value is "".  <br> <b>slicermode</b>  : This signifies that the algorithm is being invoked by Slicer. It affects default save formats.. Default value is "0". Allowed values are either 0 (Off) or 1 (On) <br> <b>loni</b>  : Create xml output  for loni pipeline and exit (1=module group,2=module). Default value is "0". Allowed range is from 0 to 2  <br> <b>ctest</b>  : Enable the running of ctest automated testing. If argument is specified then the script is invoked in test mode and using the argument as the text file containing the test definitions. Default value is "0".  <BR> <BR><B><span style="color: red;">[Software Testing Options]</span></B> <br> <b>ctestline</b>  : (Use only in software testing mode) If set to a positive integer then the only test that is run corresponds to the appropriate line in the testfile. Default value is "-1". Allowed range is from -1 to 9999  <br> <b>ctestsave</b>  : (Use only in software testing mode) If enabled then save results of computation otherwise discard after testing is performed. Default value is "0". Allowed values are either 0 (Off) or 1 (On) <br> <b>ctesttmpdir</b>  : (Use only in software testing mode) Output directory to save temporary output testing files, if not set default filenames are generated from the input filenames. Default value is "".  <br> <b>ctestexact</b>  : (Use only in software testing mode) If enabled then comparison is done via subtraction else correlation (images) or correspondence error (surfaces) is used. Default value is "1". Allowed values are either 0 (Off) or 1 (On) <br> <b>ctestthr</b>  : (Use only in software testing mode) Threshold for subtraction or correlation. Default value is "0.002". Allowed range is from 0 to 100000  <br> <b>ctestdebug</b>  : (Use only in software testing mode) If set to non empty then a textfile is created with debug output. Default value is "".  <br> <b>ctestcreategold</b>  : (Use only in software testing mode) If set to 9999 then the test saves its result as a gold standard. Use with extreme care. Default value is "0". Allowed range is from 0 to 9999  <br> <b>ctestgui</b>  : (Use only in software testing mode) If set to 1 then the testing is done in GUI mode and the comparison is based on the viewer output. Default value is "0". Allowed range is from 0 to 1  
+<br> <br><H3>BACKWARD COMPATIBILITY ISSUES</H3>
+none
+<br> <br><H3>Authors</H3>
+hirohito.okuda@yale.edu, xenophon.papademetris@yale.edu.
+<br>
+
+<HR><CENTER><A HREF="index.html" NAME="Back to index">[Return to Command Line Tools Index]</A></CENTER>
+</font>
+</BODY></HTML>
