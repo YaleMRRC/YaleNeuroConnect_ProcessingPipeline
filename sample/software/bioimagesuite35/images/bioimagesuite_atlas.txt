@@ -1,0 +1,7 @@
+#Atlas Description File
+#
+# List here atlases in MNI space 
+#
+Yale Broadmann Atlas  : yale_broadmann
+Yale Gray/White Atlas : MNI_T1_1mm_graywhite
+
