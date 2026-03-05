@@ -1,0 +1,6 @@
+#Electrode Attribute Description File
+#----------------------------------------------------------------------------------------------------
+# (space or tab delimited)
+electrode# name brain exclude theta_up theta_down beta_up beta_down gamma_up
+#----------------------------------------------------------------------------------------------------
+
