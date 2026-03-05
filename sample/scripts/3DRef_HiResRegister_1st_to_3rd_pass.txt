@@ -10,9 +10,9 @@ set inputlist(1) {
 /software/bioimagesuite35/images/MNI_T1_1mm_stripped.nii.gz
 }
 
-# modify subject ID accordingly
+# modify subject ID & session # accordingly
 set inputlist(2) {
-../sourcedata/sub-XXXX/ses-01/anat/sub-XXXX_ses-01_T1w_optiBET_brain.nii.gz
+../sourcedata/sub-XXXX/ses-XX/anat/sub-XXXX_ses-XX_T1w_optiBET_brain.nii.gz
 }
 
 #Use the *ignore* flag to skip an optional input, i.e. in this case -inp3 will not be used
