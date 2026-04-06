@@ -1,0 +1,205 @@
+#BioImageSuite Study Description File v2
+#-----------------------------------------------------
+#Study Title
+dsd
+#Subject ID
+SUBNUMBER_shen268
+#-----------------------------------------------------
+#Anatomical Data
+#-----------------------------------------------------
+#Reference Brain
+/data1/software/bioimagesuite35/images/MNI_T1_1mm_stripped.nii.gz
+#Reference Gray/White/CSF Map
+/data_dustin/store1/dataset/example/MNI_1mm_WM_CSF_erode.nii.gz
+#3D Anatomical Image
+MPRAGEIMAGE
+#Conventional Image
+MPRAGEIMAGE
+#Ref-> 3D Anatomical Transformation 
+REFREGISTRATION
+#3D Anatomical -> Conventional Transformation
+/data_dustin/store1/dataset/scripts/i.matr
+#Conventional -> EPI Transformation
+FCTREGISTRATION
+#-----------------------------------------------------
+#Basic Parameters
+#-----------------------------------------------------
+#Session ID
+sess-1
+#Session Description
+DimensionalSuperData
+#Number of Runs
+8
+#Number of Tasks
+0
+#Number of Outcomes
+0
+#Repetition Time (TR)
+1
+#Number of Slices
+75
+#Number of Frames
+
+#Skip Frames On
+0
+#Frames to Skip
+
+#-----------------------------------------------------
+#Outputs Files/Locations
+#-----------------------------------------------------
+#XML Output File
+
+#XML Output Directory
+
+#Data Output Directory
+/data26/mri_group/dustin_data/DimensionalSuperData/Matrix_Connectivity/SUBNUMBER/
+#-----------------------------------------------------
+#Runs
+#-----------------------------------------------------
+#Run 1 (first line=4D Image, second line=Matrix with Motion Parameters)
+RESTIMAGE1
+RESTMOTION1
+No Skip
+#Run 2 (first line=4D Image, second line=Matrix with Motion Parameters)
+RESTIMAGE2
+RESTMOTION2
+No Skip
+#Run 3 (first line=4D Image, second line=Matrix with Motion Parameters)
+RESTIMAGE3
+RESTMOTION3
+No Skip
+#Run 4 (first line=4D Image, second line=Matrix with Motion Parameters)
+RESTIMAGE4
+RESTMOTION4
+No Skip
+#Run 5 (first line=4D Image, second line=Matrix with Motion Parameters)
+RESTIMAGE5
+RESTMOTION5
+No Skip
+#Run 6 (first line=4D Image, second line=Matrix with Motion Parameters)
+RESTIMAGE6
+RESTMOTION6
+No Skip
+#Run 7 (first line=4D Image, second line=Matrix with Motion Parameters)
+RESTIMAGE7
+RESTMOTION7
+No Skip
+#Run 8 (first line=4D Image, second line=Matrix with Motion Parameters)
+RESTIMAGE8
+RESTMOTION8
+No Skip
+#-----------------------------------------------------
+#Tasks
+#-----------------------------------------------------
+#-----------------------------------------------------
+#Blocks
+#-----------------------------------------------------
+#Block Definition Time (1=seconds, 0 =frames)
+1
+#-----------------------------------------------------
+#Outcomes
+#-----------------------------------------------------
+#-----------------------------------------------------
+#GLM Processing and AFNI Integration
+#-----------------------------------------------------
+#Ensure Inputs are NIFTI
+ensurenifti : 0
+#Delete Temporary Files
+deletetemp : 1
+#Mask Level (% of max intensity)
+masklevel : 0.05
+#HRF Mode -- one of wav, gamma, doublegamma, triplegamma spm
+hrfmode : wav
+#Use AFNI Waver; if 0 use internal code which is cleaner/faster etc
+useafniwaver : 0
+#Use AFNI Commands for intensity normalization; if 0 use internal code which is cleaner/faster etc
+useafninormalize : 0
+#GLM Delaytime
+delaytime : 2
+#GLM Risetime
+risetime : 4
+#GLM Falltime
+falltime : 6
+#GLM Undershoot
+undershoot : 0.2
+#GLM Peak
+peak : 1.0
+#Polynomial Drift
+polort : 3
+#Output Baseline Coefficientts
+bout : 0
+#Output F-Statistics
+fout : 0
+#Output R^2-Statistics
+rout : 0
+#Output T-Statistics
+tout : 0
+#Output Residual Time Series
+saveresidual : 0
+#Output Drift Beta Maps
+savedriftbeta : 0
+#Output Sample Variance Map
+vout : 0
+#GLM Single Run Output
+glmsinglerunoutput : 0
+#GLM Regress Motion Parameters
+glmregressmotion : 0
+#Rate GLM Terms
+numrateterms : 1
+#Rate GLM Global Drift
+rateglobal : 0
+#-----------------------------------------------------
+#Resting State Connectivity Extra Inputs
+#-----------------------------------------------------
+#VOI Definition
+/data_dustin/store1/dataset/scripts/shen_1mm_268_parcellation.nii
+#VOI Definition Space (Reference,Anatomical,Conventional,Functional)
+Reference
+#Inverse Reference Transformation
+INVREFREGISTRATION
+#-----------------------------------------------------
+#Connectivity Parameters
+#-----------------------------------------------------
+#Mask Level (% of max intensity)
+masklevel : 0.05
+#Polynomial Drift
+driftpol : 3
+# Slice Mean Removal 
+slicemeanremoval : 0
+# Volume Mean Removal 
+volumemeanremoval : 1
+#Raw Correlation
+rawcorrelation : 0
+#Z Transform
+ztransform : 0
+#Process Runs Individually
+individualruns : 1
+#Temporal Smoothing Sigma (Frames)
+temporalsigma : 1.55
+#Intrinsic Connectivity Threshold
+threshold : 0.0
+#Intrinsic Connectivity Range
+range : Both
+#Intrinsic Connectivity Mode
+mode : Sqr
+#Use VOI Image as mask For Intrinsic Connectivity
+usermask : 1
+#Preprocess (Eliminate Motion Parameters)
+usemotionparams : 1
+#Preprocess (Eliminate CSF/White Matter Mean)
+usecsfmean : 1
+#Preprocess (remove high motion frames)
+scrub : 0
+#Scrub threshold
+scrub_threshold : 0.3
+#skip the frames before and after high motion frame
+skipbeforeandafter : 1
+#-----------------------------------------------------
+#Extra GLM Parameters Parameters
+#-----------------------------------------------------
+#Use External Matrix File
+useexternalmatrix : 0
+#External Matrix FileName
+externalmatrixfilename : 
+#Do Convolution with HRF
+doconvolution : 1
